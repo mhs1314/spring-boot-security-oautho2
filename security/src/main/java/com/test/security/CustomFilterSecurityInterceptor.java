@@ -9,7 +9,11 @@ import org.springframework.security.web.access.intercept.FilterInvocationSecurit
 
 import javax.servlet.*;
 import java.io.IOException;
-
+/**
+ * 设定了自定义的权限管理过滤器
+ * @author mhs123
+ *
+ */
 public class CustomFilterSecurityInterceptor extends AbstractSecurityInterceptor implements Filter {
     private static final Logger logger = Logger.getLogger(CustomFilterSecurityInterceptor.class);
     private FilterInvocationSecurityMetadataSource securityMetadataSource;

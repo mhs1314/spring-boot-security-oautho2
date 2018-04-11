@@ -8,7 +8,7 @@ spring:
   datasource:
       url: jdbc:mysql://localhost:3306/test?characterEncoding=utf8
       username: root
-      password: 12345678
+      password: root
   jpa:
     database: MYSQL
     show-sql: true
@@ -19,24 +19,30 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
-
+#security是OAuth2的配置
 security:
   ignored: /favicon.ico,/scripts/**,/styles/**,/images/**
   sessions: ALWAYS
   oauth2:
       sso:
+      #loginPath是一个登录的链接地址
         loginPath: /login
       client:
+      #clientid和clientSecret是由sso认证服务器提供的客户端ID和秘钥
         clientId: ssoclient
         clientSecret: ssosecret
+       #accessTokenUri是取得令牌的链接地址
         accessTokenUri: http://localhost/oauth/token
+        #userAuthorizationUri是用户授权确认的链接地址
         userAuthorizationUri: http://localhost/oauth/authorize
         clientAuthenticationScheme: form
       resource:
         jwt:
+        #keyUri是当客户端被指定为资源服务器所用的令牌链接地址
           keyUri: http://localhost/oauth/token_key
-
+#securityconfig 是spring security的配置
 securityconfig:
+  #logoutsuccessurl是一个登出成功的链接地址
   logoutsuccssurl: /tosignout
   permitall: /rest/**,/bb**
   deniedpage: /deny

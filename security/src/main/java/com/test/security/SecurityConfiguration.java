@@ -24,8 +24,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * 安全配置模块
+ * 集成了sso客户端的安全策略配置和权限管理功能
+ * 可以供使用sso客户端使用
+ * @author mhs123
+ *
+ */
 @Configuration
+//标注为sso客户端
 @EnableOAuth2Sso
 @EnableConfigurationProperties(SecuritySettings.class)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -33,7 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private AuthenticationManager authenticationManager;
     @Autowired
     private SecuritySettings settings;
-
+    //使用HttpSecurity配置一些安全策略
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http

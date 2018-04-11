@@ -26,11 +26,12 @@ securityconfig:
   urlroles: /**/new/** = admin;
             /**/edit/** = admin,editor;
             /**/delete/** = admin
-
+#使用资源服务的路由配置
 zuul:
   routes:
+  #设定资源的访问路径
     resource:
       path: /resource/**
       url: http://localhost:8083
       stripPrefix: true
-      retryable:
+  
