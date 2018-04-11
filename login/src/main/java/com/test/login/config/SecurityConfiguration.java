@@ -16,7 +16,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 
 import javax.sql.DataSource;
-
+/**
+ * spring security 服务端配置
+ * 认证服务器的安全策略配置
+ * 提供了记住用户登录状态的功能，这样当用户选择记住登录状态后，只要不执行退出，在记住登录状态的有效期内，重新打开授权的链接时就可以不用再次登录
+ * 登录页面设定为login 。但是这里没有针对角色的一些权限管理配置，这是因为在登录认证模块中只提供了登录认证功能
+ * @author mhs123
+ *
+ */
 @Configuration
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {

@@ -23,7 +23,7 @@ public class LoginController {
     public String login(){
         return "login";
     }
-
+    //sso服务端退出登录
     @RequestMapping("/signout")
     public String signout(HttpServletRequest request) throws Exception{
         request.logout();
