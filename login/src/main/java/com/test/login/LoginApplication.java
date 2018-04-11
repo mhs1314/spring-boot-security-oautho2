@@ -9,6 +9,8 @@ import org.springframework.boot.web.servlet.ServletContextInitializer;
 import org.springframework.context.annotation.ComponentScan;
 /**
  * 登录认证模块
+ * 使用keytool创建数字证书
+ * c:\\users\Alan>keytool -genkey -keystore keystore.jks -alias tycoonclent -keyalg RSA
  * 此sso-demo工程分
  * 数据管理模块 -mysql
  * 安全配置模块-security
