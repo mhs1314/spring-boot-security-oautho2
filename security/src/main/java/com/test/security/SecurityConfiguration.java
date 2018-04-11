@@ -90,7 +90,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new CustomSecurityMetadataSource(settings.getUrlroles());
     }
 
-
+   //加入需要排除阻止csrf攻击的链表列表，如下，只要连接包含"/rest"的字符串，就将对其忽略csrf的保护
     private CsrfSecurityRequestMatcher csrfSecurityRequestMatcher(){
         CsrfSecurityRequestMatcher csrfSecurityRequestMatcher = new CsrfSecurityRequestMatcher();
         List<String> list = new ArrayList<String>();
