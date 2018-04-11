@@ -185,6 +185,7 @@ $.fn.getLabel=function(){
 };
 
 $(function () {
+	//只允许有效的操作
     var token = $("meta[name='_csrf']").attr("content");
     var header = $("meta[name='_csrf_header']").attr("content");
     $(document).ajaxSend(function(e, xhr, options) {

@@ -38,9 +38,23 @@ import java.util.List;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private AuthenticationManager authenticationManager;
+    
     @Autowired
     private SecuritySettings settings;
     //使用HttpSecurity配置一些安全策略
+    /**
+     * HttpSecurity 的各项配置如下
+     * loginPage:设置一个使用自定义的登录页面URL
+     * loginSuccessHandler 设置自定义的一个登录成功处理器
+     * permitAll 是完全允许的一些URL配置，并可以使用通配符来设置，这里将一些资源目录赋予可以安全访问的权限，由settings指定的权限列表也
+     * 赋予了安全访问的权限
+     * logout 设置使用默认的登出
+     * logoutSuccessUrl 设定登出成功的链接
+     * rememberMe 用来记住登录状态，即用户没有执行退出时，再次打开页面将不用登录
+     * csrf 即跨站请求伪造，这是一个防止跨站请求伪造攻击的策略设置
+     * accessDeniedPage 配置一个拒绝访问的提示链接
+     * 其中settings是引用了自定义的配置
+     */
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http

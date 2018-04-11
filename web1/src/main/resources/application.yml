@@ -46,6 +46,7 @@ securityconfig:
   logoutsuccssurl: /tosignout
   permitall: /rest/**,/bb**
   deniedpage: /deny
+  #urlroles配置一个权限配置列表，这是自己设计的一种权限管理规则，列表中的每一个配置项用分号分隔，每一个配置项的等号左边是一个可以带上统配符的链接地址，等号右边是一个角色列表，角色之间用逗号分隔
   urlroles: /**/new/** = admin;
             /**/edit/** = admin,editor;
             /**/delete/** = admin
